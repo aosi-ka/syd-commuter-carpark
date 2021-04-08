@@ -1,7 +1,5 @@
 import requests
-
-API_TOKEN = 'b2GbjBTt8BUFKlzAQUx3Z9yehfVYpdesZ6XF'
-API_KEY = f'apikey {API_TOKEN}'
+from src.priv_api import API_KEY
 
 # Station ID numbers
 ashfield_id = 486
@@ -49,10 +47,6 @@ def get_station_occupancy_data(station_lowercase):
         'available_spots': available_spots,
         'status': status,
     }
-
-
-
-    print(ret_dict)
 
     return ret_dict
     
