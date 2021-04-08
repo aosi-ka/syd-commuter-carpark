@@ -15,6 +15,7 @@ Type in a station that is supported by TfNSW's API and it'll return whether if t
 
 ## Further Updates in the Future
 * Will eventually support metro lines , have a graphics to determine which zones have parking spots (Sydney Metro have zoned out the commuter car park)
-* Utilise parking history to help users out when the commuter car park is usually free
+* Utilise parking history to help users out when the commuter car park is usually free (include some graphics and some previous data hourly basis)
 * Add the current time of request for clarity.
 * Increase security around API calls, need a better way to abstract the API_KEY (sorry for the freeloaders, however it is free to signup to Transport for NSW Open Data!)
+* Make classes for API requests
