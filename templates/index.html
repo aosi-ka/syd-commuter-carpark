@@ -1,0 +1,91 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+	<title>Is the Car Park Full?</title>
+	<style type="text/css">
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.center-button {
+  margin-top: 25px;
+  text-align: center;
+}
+
+  </style>
+</head>
+
+<body>
+
+    <main role="main" class="container">
+    <div>
+      <h1>Is the Car Park full?</h1>
+    </div>
+    <br>
+  
+
+    {% if errorMsg %}
+    <div display="none" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Oops:</strong> {{errorMsg}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %}
+  
+  
+    <form class="form-group" method="POST">
+      <h2>Type a Bus Stop or Train/Metro Station</h2>
+
+      <label for="stationInput">Bus Stop, Train/Metro Station</label>
+      <input type="text" class="form-control" name="Station" placeholder="Enter a Station, without the word 'Station', e.g. Seven Hills" required>
+      <small class="form-text text-muted">Currently only works for Ashfield, Kogarah Seven Hills Train Station and Manly Vale Bus Stop</small>
+      
+      <div class="center-button">
+        <input type="submit" class="btn btn-primary"/>
+      </div>
+    </form>
+
+    {% if parking_data %}
+    <div class="container">
+      <h1>
+        {{parking_data["status"]}} at {{parking_data["station_name"]}}
+      </h1>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Bus Stop or Station Name</th>
+            <th scope="col">Total Spots</th>
+            <th scope="col">Current Occupany</th>
+            <th scope="col">Available Spots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">{{parking_data["station_name"]}}</th>
+            <td>{{parking_data["total_spots"]}}</td>
+            <td>{{parking_data["curr_occupancy"]}}</td>
+            <td><b>{{parking_data["available_spots"]}}</b></td>
+          </tr>
+      </table>
+    </div>
+    {% endif %}
+
+    </main><!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</body>
+</html>
