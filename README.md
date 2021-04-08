@@ -12,6 +12,7 @@ Type in a station that is supported by TfNSW's API and it'll return whether if t
 ## Takeways
 * Learnt how to utilise python flask to deliever a frontend and read off the backend APIs.
 * Will eventually learn how to deploy on a website
+* Utilising CSS bootstraps to not "re-invent the wheel"
 
 ## Further Updates in the Future
 * Will eventually support metro lines , have a graphics to determine which zones have parking spots (Sydney Metro have zoned out the commuter car park)
